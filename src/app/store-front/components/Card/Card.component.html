@@ -1,12 +1,12 @@
-<div class="card card-compact bg-base-100  shadow-xl animate-fadeIn">
+<div class="card card-compact bg-base-100 mt-5  shadow-xl animate-fadeIn">
   <figure>
     <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
+      [src]="imageUrl()"
+      [alt]="product()?.title" />
   </figure>
   <div class="card-body">
-    <h2 class="card-title">{{title()}}</h2>
-    <p>Pintura con oleo</p>
+    <h2 class="card-title text-primary text-xl">{{product()?.title}}</h2>
+    <p>{{product()?.description | slice : 0 : 70 }}...</p>
     <div class="card-actions justify-end">
       <a class="btn btn-primary" [routerLink]="['/product', 't-shirt']">Ver más</a>
     </div>
