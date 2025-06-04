@@ -14,7 +14,7 @@
         <li><a routerLink="/gender/kids" class="btn btn-ghost" routerLinkActive="text-secondary">Niños</a></li>
       </ul>
     </div>
-    <a routerLink="" class="btn btn-ghost text-xl">Teslo <span class="text-secondary font-montserrat">| shop </span></a>
+    <a routerLink="" class="btn btn-ghost text-xl">Teslo <span class="text-sky-600 font-montserrat">| shop </span></a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
@@ -23,7 +23,18 @@
       <li><a  routerLink="/gender/kids" class="btn btn-ghost" routerLinkActive="text-secondary">Niños</a></li>
     </ul>
   </div>
-  <div class="navbar-end">
-    <a class="btn">Button</a>
+  <div class="navbar-end mr-4">
+    @if (AuthService.authStatus() === 'authenticated') {
+      <button class="btn btn-ghost">
+        {{ AuthService.user()?.fullName }}
+      </button>
+      <button class="btn btn-sm btn-error" (click)="AuthService.logout()">
+        Salir
+      </button>
+    } @else if ( AuthService.authStatus() === 'not-authenticated' ) {
+      <a routerLink="/auth/login">Login</a>
+    }@else{
+      <a class="btn btn-ghost">...</a>
+    }
   </div>
 </div>

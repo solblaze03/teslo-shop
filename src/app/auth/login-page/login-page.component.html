@@ -1,0 +1,35 @@
+<h1 class="text-2xl m-5">Teslo <span class="text-sky-600 font-montserrat">| shop </span></h1>
+<div class="flex flex-col items-center ">
+
+    <form class="flex flex-col items-center" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <h2 class="text-3xl font-bold mb-2 mt-10">Inicio de <span class="text-sky-600">sesión</span></h2>
+        <h3 class="text-gray-400">Bienvenido de nuevo! Introduce tus credenciales</h3>
+
+        <div class="m-7 ">
+            <legend class="fieldset-legend">Correo</legend>
+            <input class="input input-primary placeholder-gray-400  w-[400px] mb-6 " type="text"
+                placeholder="Introduce tu correo" formControlName="email">
+            <legend class="fieldset-legend">Contraseña</legend>
+            <input class="input input-primary placeholder-gray-400 w-[400px]" type="password"
+                placeholder="Introduce tu contraseña" formControlName="password">
+        </div>
+        <button class="btn btn-primary w-[400px]">Iniciar sesión</button>
+    </form>
+
+    
+
+
+    @if (hasError()) {
+        <div role="alert " class="alert alert-error animate-fadeIn fixed bottom-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Información invalida</span>
+        </div>
+    }
+
+    <p class="mt-5">¿No tienes cuenta? <a class="text-primary hover:underline"
+            routerLink="/auth/register">Registrate</a></p>
+</div>

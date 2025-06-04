@@ -1,3 +1,4 @@
 export const environment = {
-    api: 'http://localhost:3000/api'
+    api: 'https://nest-teslo-shop-back.onrender.com/api'
+    //api: 'http://localhost:3000/api'
 };
